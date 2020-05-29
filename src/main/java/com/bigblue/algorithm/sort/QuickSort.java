@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @Author: TheBigBlue
- * @Description:
+ * @Description: 快速排序
  * @Date: 2020/5/10
  */
 public class QuickSort {
@@ -27,7 +27,7 @@ public class QuickSort {
      * 稳定性：不稳定
      * @param dataArr
      */
-    private static void quickSort(int[] dataArr, int left, int right) {
+    public static void quickSort(int[] dataArr, int left, int right) {
         if(left >= right){
             return;
         }

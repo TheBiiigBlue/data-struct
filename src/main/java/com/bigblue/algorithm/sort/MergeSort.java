@@ -21,9 +21,10 @@ public class MergeSort {
      * 但是当数据量达到亿级以上，归并的优势就显现出来了，因为归并的最差时间复杂度也是nlogn,而快排最差是n^2
      * <p>
      * 平均时间复杂度：O(nlogn)
-     * 最优时间复杂度：O(n)
+     * 最优时间复杂度：O(nlogn)
      * 最差时间复杂度：O(nlogn)
      * 空间复杂度：O(n)
+     * 稳定性： 稳定
      */
 
     public static void main(String[] args) {
@@ -51,14 +52,14 @@ public class MergeSort {
     //两路归并算法，两个排好序的子序列合并为一个子序列
     public static void merge(int[] dataArr, int left, int mid, int right, int[] tmp) {
         //p1、p2是检测指针，k是存放指针
-        int p1 = left, p2 = mid + 1, k = left;
+        int p1 = left, p2 = mid + 1, index = left;
         while (p1 <= mid && p2 <= right) {
-            tmp[k++] = dataArr[p1] < dataArr[p2] ? dataArr[p1++] : dataArr[p2++];
+            tmp[index++] = dataArr[p1] < dataArr[p2] ? dataArr[p1++] : dataArr[p2++];
         }
         //如果第一个序列未检测完，直接将后面所有元素加到合并的序列中
-        while (p1 <= mid) tmp[k++] = dataArr[p1++];
+        while (p1 <= mid) tmp[index++] = dataArr[p1++];
         //同上
-        while (p2 <= right) tmp[k++] = dataArr[p2++];
+        while (p2 <= right) tmp[index++] = dataArr[p2++];
         //复制回原素组
         for (int i = left; i <= right; i++) {
             dataArr[i] = tmp[i];
